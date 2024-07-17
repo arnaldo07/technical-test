@@ -5,6 +5,7 @@ plugins {
     id("com.google.devtools.ksp")
     id("org.jetbrains.kotlin.plugin.serialization")
     id("dagger.hilt.android.plugin")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -71,6 +72,9 @@ dependencies {
     implementation(libs.io.coil.kt.coil.compose)
     implementation(libs.androidx.core.splashscreen)
 
+    implementation(libs.com.valentinilk.shimmer.compose)
+    implementation(libs.com.airbnb.android.lottie.compose)
+
     //navigation
     api(libs.androidx.navigation.navigation.compose)
     api(libs.kotlinx.serialization.json)
@@ -111,3 +115,19 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
 }
+
+//required for google map Api key
+/*secrets {
+    // Optionally specify a different file name containing your secrets.
+    // The plugin defaults to "local.properties"
+    propertiesFileName = "secret.properties"
+
+    // A properties file containing default secret values. This file can be
+    // checked in version control.
+    //defaultPropertiesFileName = "local.defaults.properties"
+
+    // Configure which keys should be ignored by the plugin by providing regular expressions.
+    // "sdk.dir" is ignored by default.
+    //ignoreList.add("keyToIgnore") // Ignore the key "keyToIgnore"
+    //ignoreList.add("sdk.*")       // Ignore all keys matching the regexp "sdk.*"
+}*/

@@ -23,6 +23,8 @@ secrets-gradle-plugin = "2.0.1"
 kotestRunnerJunit5 = "5.9.0"
 kotlinx-coroutines = "1.8.0"
 mockk = "1.13.12"
+valentinilkShimmer = "1.2.0"
+airbnb-lottie-compose = "6.4.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -60,6 +62,8 @@ secrets-gradle-plugin = { module = "com.google.android.libraries.mapsplatform.se
 kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotestRunnerJunit5" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 io-mockk = {module = "io.mockk:mockk", version.ref = "mockk"}
+com-valentinilk-shimmer-compose = {module= "com.valentinilk.shimmer:compose-shimmer", version.ref = "valentinilkShimmer" }
+com-airbnb-android-lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "airbnb-lottie-compose" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
