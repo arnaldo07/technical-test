@@ -4,16 +4,6 @@ import com.enmanuelbergling.technicaltest.domain.entity.Contact
 import com.enmanuelbergling.technicaltest.domain.entity.Coordinates
 import com.enmanuelbergling.technicaltest.domain.entity.Location
 
-fun Location.toDestination() = LocationNavArgument(
-    street = street,
-    city = city,
-    state = state,
-    country = country,
-    postcode = postcode,
-    latitude = coordinates.latitude,
-    longitude = coordinates.longitude,
-)
-
 fun Contact.toDestination() = ContactDestination(
     gender = gender,
     name = name,
@@ -25,17 +15,13 @@ fun Contact.toDestination() = ContactDestination(
     cell = cell,
     thumbPicture = thumbPicture,
     nat = nat,
-    location = location.toDestination(),
+    latitude = location.coordinates.latitude,
+    longitude = location.coordinates.longitude,
+    city = location.city,
+    state = location.state,
+    country = location.country,
 )
 
-fun LocationNavArgument.toDomain() = Location(
-    street = street,
-    city = city,
-    state = state,
-    country = country,
-    postcode = postcode,
-    coordinates = Coordinates(latitude, longitude)
-)
 
 fun ContactDestination.toDomain() = Contact(
     gender = gender,
@@ -48,5 +34,12 @@ fun ContactDestination.toDomain() = Contact(
     cell = cell,
     thumbPicture = thumbPicture,
     nat = nat,
-    location = location.toDomain(),
+    location = Location(
+        street = "",
+        city = city,
+        state = state,
+        country = country,
+        postcode = "",
+        coordinates = Coordinates(latitude, longitude)
+    )
 )
