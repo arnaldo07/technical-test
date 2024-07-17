@@ -1,4 +1,4 @@
-package com.enmanuelbergling.technicaltest.ui.contact.navigation
+package com.enmanuelbergling.technicaltest.ui.feature.contact.navigation
 
 import com.enmanuelbergling.technicaltest.domain.entity.Contact
 import com.enmanuelbergling.technicaltest.domain.entity.Coordinates

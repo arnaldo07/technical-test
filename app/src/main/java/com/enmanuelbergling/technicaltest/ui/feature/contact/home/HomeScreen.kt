@@ -1,4 +1,4 @@
-package com.enmanuelbergling.technicaltest.ui.contact.home
+package com.enmanuelbergling.technicaltest.ui.feature.contact.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -45,6 +45,7 @@ import coil.compose.AsyncImage
 import com.enmanuelbergling.technicaltest.R
 import com.enmanuelbergling.technicaltest.domain.entity.Contact
 import com.enmanuelbergling.technicaltest.ui.components.SimpleLottieAnimation
+import com.enmanuelbergling.technicaltest.ui.feature.contact.home.HomeScreenVM
 import com.enmanuelbergling.technicaltest.ui.theme.DimensionTokens
 import com.enmanuelbergling.technicaltest.ui.theme.TechnicalTestTheme
 import com.enmanuelbergling.technicaltest.ui.utils.isAppending

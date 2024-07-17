@@ -1,4 +1,4 @@
-package com.enmanuelbergling.technicaltest.ui.contact.home
+package com.enmanuelbergling.technicaltest.ui.feature.contact.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

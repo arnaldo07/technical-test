@@ -1,4 +1,4 @@
-package com.enmanuelbergling.technicaltest.ui.contact.detail
+package com.enmanuelbergling.technicaltest.ui.feature.contact.detail
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
