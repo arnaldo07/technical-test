@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeScreenVM @Inject constructor(
+class HomeScreenViewModel @Inject constructor(
     getPaginatedContactsUseCase: GetPaginatedContactsUseCase,
 ) : ViewModel() {
 

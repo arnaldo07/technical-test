@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Contacts</string>
     <string name="try_again">Try again</string>
+    <string name="about">About %s</string>
+    <string name="gender">Gender</string>
+    <string name="location">Location</string>
 </resources>

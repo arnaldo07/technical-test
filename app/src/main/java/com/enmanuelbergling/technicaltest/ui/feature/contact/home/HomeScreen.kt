@@ -45,7 +45,6 @@ import coil.compose.AsyncImage
 import com.enmanuelbergling.technicaltest.R
 import com.enmanuelbergling.technicaltest.domain.entity.Contact
 import com.enmanuelbergling.technicaltest.ui.components.SimpleLottieAnimation
-import com.enmanuelbergling.technicaltest.ui.feature.contact.home.HomeScreenVM
 import com.enmanuelbergling.technicaltest.ui.theme.DimensionTokens
 import com.enmanuelbergling.technicaltest.ui.theme.TechnicalTestTheme
 import com.enmanuelbergling.technicaltest.ui.utils.isAppending
@@ -56,7 +55,7 @@ import com.valentinilk.shimmer.shimmer
 @Composable
 fun HomeRoute(onDetails: (Contact) -> Unit) {
 
-    val viewModel = hiltViewModel<HomeScreenVM>()
+    val viewModel = hiltViewModel<HomeScreenViewModel>()
     val contacts = viewModel.contacts.collectAsLazyPagingItems()
 
     HomeScreen(contacts = contacts, onDetails)
@@ -187,7 +186,7 @@ private fun ContactsList(
 }
 
 
-fun pictureModifier() = Modifier
+private fun Modifier.contactPicture() = this
     .size(DimensionTokens.PictureSize)
     .clip(CircleShape)
 
@@ -211,14 +210,15 @@ fun ContactItem(
                 painter = painterResource(id = R.drawable.mr_bean),
                 contentDescription = "contact picture",
                 contentScale = ContentScale.Crop,
-                modifier = pictureModifier()
+                modifier = Modifier.contactPicture()
             )
         } else {
             AsyncImage(
                 model = thumbPicture,
                 contentDescription = "contact picture",
                 contentScale = ContentScale.Crop,
-                modifier = pictureModifier()
+                modifier = Modifier.contactPicture(),
+                placeholder = painterResource(id = R.drawable.mr_bean),
             )
         }
 
@@ -266,7 +266,11 @@ fun ContactItemPlaceholder(modifier: Modifier = Modifier) {
             .padding(start = DimensionTokens.VerySmall)
             .padding(all = DimensionTokens.Small) then modifier
     ) {
-        Box(modifier = pictureModifier().background(MaterialTheme.colorScheme.surfaceVariant))
+        Box(
+            modifier = Modifier
+                .contactPicture()
+                .background(MaterialTheme.colorScheme.surfaceVariant)
+        )
 
         Spacer(modifier = Modifier.width(DimensionTokens.Small))
 
