@@ -16,7 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import com.enmanuelbergling.technicaltest.ui.theme.DimensionTokens
-import com.enmanuelbergling.technicaltest.ui.theme.TechnicalTestTheme
+import com.enmanuelbergling.technicaltest.ui.theme.ContactsTheme
 
 @Composable
 fun LargerIconButton(
@@ -43,7 +43,7 @@ fun LargerIconButton(
 @Preview
 @Composable
 private fun LargerIconButtonPrev() {
-    TechnicalTestTheme {
+    ContactsTheme {
         LargerIconButton(
             Icons.Rounded.Call
         ) {}

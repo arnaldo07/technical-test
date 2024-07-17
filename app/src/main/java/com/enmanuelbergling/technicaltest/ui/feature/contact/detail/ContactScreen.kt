@@ -54,7 +54,7 @@ import com.enmanuelbergling.technicaltest.domain.entity.Contact
 import com.enmanuelbergling.technicaltest.domain.entity.Coordinates
 import com.enmanuelbergling.technicaltest.ui.components.LargerIconButton
 import com.enmanuelbergling.technicaltest.ui.theme.DimensionTokens
-import com.enmanuelbergling.technicaltest.ui.theme.TechnicalTestTheme
+import com.enmanuelbergling.technicaltest.ui.theme.ContactsTheme
 import com.enmanuelbergling.technicaltest.ui.utils.sendEmail
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -229,7 +229,7 @@ fun ContactHeader(picture: String, modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun ContactHeaderPrev() {
-    TechnicalTestTheme {
+    ContactsTheme {
         ContactHeader(
             ""
         )
@@ -281,7 +281,7 @@ fun AboutItemCard(
 @Preview
 @Composable
 private fun AboutItemCardPrev() {
-    TechnicalTestTheme {
+    ContactsTheme {
         AboutItemCard(
             "Gender",
             "Female",
@@ -317,7 +317,7 @@ fun AboutItemText(
 @Preview
 @Composable
 private fun AboutItemTextPrev() {
-    TechnicalTestTheme {
+    ContactsTheme {
         AboutItemText(Icons.Rounded.LocationOn, "Santa Clara")
     }
 }

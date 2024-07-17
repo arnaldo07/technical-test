@@ -46,7 +46,7 @@ import com.enmanuelbergling.technicaltest.R
 import com.enmanuelbergling.technicaltest.domain.entity.Contact
 import com.enmanuelbergling.technicaltest.ui.components.SimpleLottieAnimation
 import com.enmanuelbergling.technicaltest.ui.theme.DimensionTokens
-import com.enmanuelbergling.technicaltest.ui.theme.TechnicalTestTheme
+import com.enmanuelbergling.technicaltest.ui.theme.ContactsTheme
 import com.enmanuelbergling.technicaltest.ui.utils.isAppending
 import com.enmanuelbergling.technicaltest.ui.utils.isEmpty
 import com.enmanuelbergling.technicaltest.ui.utils.isRefreshing
@@ -249,7 +249,7 @@ fun ContactItem(
 @PreviewLightDark
 @Composable
 private fun ContactItemPrev() {
-    TechnicalTestTheme {
+    ContactsTheme {
         ContactItem(
             name = "Mr. Bean",
             email = "mrbean@gmail.com",
@@ -303,7 +303,7 @@ fun ContactItemPlaceholder(modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun ContactPlaceholderPrev() {
-    TechnicalTestTheme {
+    ContactsTheme {
         ContactItemPlaceholder(Modifier.fillMaxWidth())
     }
 }
