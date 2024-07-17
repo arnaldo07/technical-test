@@ -6,6 +6,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization")
     id("dagger.hilt.android.plugin")
     id("kotlin-parcelize")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -116,8 +117,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
 }
 
-//required for google map Api key
-/*secrets {
+secrets {
     // Optionally specify a different file name containing your secrets.
     // The plugin defaults to "local.properties"
     propertiesFileName = "secret.properties"
@@ -130,4 +130,4 @@ dependencies {
     // "sdk.dir" is ignored by default.
     //ignoreList.add("keyToIgnore") // Ignore the key "keyToIgnore"
     //ignoreList.add("sdk.*")       // Ignore all keys matching the regexp "sdk.*"
-}*/
+}

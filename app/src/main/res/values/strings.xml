@@ -4,4 +4,5 @@
     <string name="about">About %s</string>
     <string name="gender">Gender</string>
     <string name="location">Location</string>
+    <string name="map">Map</string>
 </resources>
