@@ -8,7 +8,7 @@ import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSiz
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import com.enmanuelbergling.technicaltest.ui.navigation.AppNavHost
 import com.enmanuelbergling.technicaltest.ui.rememberAppState
-import com.enmanuelbergling.technicaltest.ui.theme.TechnicalTestTheme
+import com.enmanuelbergling.technicaltest.ui.theme.ContactsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +18,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            TechnicalTestTheme {
+            ContactsTheme {
                 AppNavHost(
                     appState = rememberAppState(windowSizeClass = calculateWindowSizeClass(activity = this))
                 )
