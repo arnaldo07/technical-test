@@ -9,5 +9,6 @@ data class Contact(
     val age: Int,
     val phone: String,
     val cell: String,
-    val thumbPicture: String
+    val thumbPicture: String,
+    val nat: String
 )
