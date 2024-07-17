@@ -1,9 +1,7 @@
 package com.enmanuelbergling.technicaltest.data.network.paging
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.enmanuelbergling.technicaltest.core.TAG
 import com.enmanuelbergling.technicaltest.domain.entity.Contact
 import com.enmanuelbergling.technicaltest.domain.repo.ContactRepo
 
@@ -29,11 +27,7 @@ class ContactPagingSource(
                 data = contacts,
                 prevKey = if (position == 1) null else position - 1,
                 nextKey = nextKey
-            ).also {
-                contacts.forEach{
-                    Log.d(TAG, "$it \n")
-                }
-            }
+            )
         }
 
         val exception = response.exceptionOrNull()?.let {
