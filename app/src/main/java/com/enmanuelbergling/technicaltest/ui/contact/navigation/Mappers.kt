@@ -4,7 +4,7 @@ import com.enmanuelbergling.technicaltest.domain.entity.Contact
 import com.enmanuelbergling.technicaltest.domain.entity.Coordinates
 import com.enmanuelbergling.technicaltest.domain.entity.Location
 
-fun Location.toDestination() = LocationArgument(
+fun Location.toDestination() = LocationNavArgument(
     street = street,
     city = city,
     state = state,
@@ -28,7 +28,7 @@ fun Contact.toDestination() = ContactDestination(
     location = location.toDestination(),
 )
 
-fun LocationArgument.toDomain() = Location(
+fun LocationNavArgument.toDomain() = Location(
     street = street,
     city = city,
     state = state,

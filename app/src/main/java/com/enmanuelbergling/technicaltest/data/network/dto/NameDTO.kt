@@ -10,6 +10,4 @@ internal data class NameDTO(
     val first: String,
     @SerializedName("last")
     val last: String
-){
-    fun toFormattedString() = "$title $first $last"
-}
+)
