@@ -9,7 +9,8 @@ import com.enmanuelbergling.technicaltest.domain.entity.Location
 
 internal fun ContactDTO.toDomain() = Contact(
     gender = gender,
-    name = name.toFormattedString(),
+    name = name.first,
+    lastname = name.last,
     location = location.toDomain(),
     email = email,
     dayOfBirth = dayOfBirth.date,

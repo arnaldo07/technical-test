@@ -36,6 +36,7 @@ data class LocationArgument(
 data class ContactDestination(
     val gender: String,
     val name: String,
+    val lastname: String,
     val email: String,
     val dayOfBirth: String,
     val age: Int,
