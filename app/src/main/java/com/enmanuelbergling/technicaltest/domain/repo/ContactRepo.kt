@@ -7,5 +7,5 @@ interface ContactRepo {
     suspend fun getContactsPage(
         page: Int,
         pageSize: Int,
-    ): List<Contact>
+    ): Result<List<Contact>>
 }
