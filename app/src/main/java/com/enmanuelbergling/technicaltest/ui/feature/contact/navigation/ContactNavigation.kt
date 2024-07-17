@@ -10,7 +10,6 @@ import com.enmanuelbergling.technicaltest.domain.entity.Coordinates
 import com.enmanuelbergling.technicaltest.ui.feature.contact.detail.ContactRoute
 import com.enmanuelbergling.technicaltest.ui.feature.contact.home.HomeRoute
 import kotlinx.serialization.Serializable
-import kotlin.reflect.typeOf
 
 fun NavHostController.navigateToDetails(contact: Contact, navOptions: NavOptions? = null) {
     navigate(contact.toDestination(), navOptions)
@@ -34,7 +33,11 @@ data class ContactDestination(
     val cell: String,
     val thumbPicture: String,
     val nat: String,
-    val location: LocationNavArgument,
+    val latitude: String,
+    val longitude: String,
+    val city: String,
+    val state: String,
+    val country: String,
 )
 
 fun NavGraphBuilder.contactGraph(
@@ -48,9 +51,7 @@ fun NavGraphBuilder.contactGraph(
             HomeRoute(onDetails)
         }
 
-        composable<ContactDestination>(
-            typeMap = mapOf(typeOf<LocationNavArgument>() to LocationArgumentType)
-        ) {
+        composable<ContactDestination> {
             ContactRoute(onBack, onLocate)
         }
     }
