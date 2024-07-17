@@ -17,7 +17,7 @@ internal fun ContactDTO.toDomain() = Contact(
     age = dayOfBirth.age,
     phone = phone,
     cell = cell,
-    thumbPicture = picture.thumbnail,
+    thumbPicture = picture.medium,
     nat = nat
 )
 

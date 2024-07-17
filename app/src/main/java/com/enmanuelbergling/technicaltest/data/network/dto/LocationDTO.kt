@@ -13,7 +13,7 @@ internal data class LocationDTO(
     @SerializedName("country")
     val country: String,
     @SerializedName("postcode")
-    val postcode: Int,
+    val postcode: String,
     @SerializedName("coordinates")
     val coordinates: CoordinatesDTO,
     @SerializedName("timezone")
