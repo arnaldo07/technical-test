@@ -1,4 +1,4 @@
-package com.enmanuelbergling.technicaltest.ui.contact.navigation
+package com.enmanuelbergling.technicaltest.ui.feature.contact.navigation
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -7,8 +7,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.enmanuelbergling.technicaltest.domain.entity.Contact
 import com.enmanuelbergling.technicaltest.domain.entity.Coordinates
-import com.enmanuelbergling.technicaltest.ui.contact.detail.ContactRoute
-import com.enmanuelbergling.technicaltest.ui.contact.home.HomeRoute
+import com.enmanuelbergling.technicaltest.ui.feature.contact.detail.ContactRoute
+import com.enmanuelbergling.technicaltest.ui.feature.contact.home.HomeRoute
 import kotlinx.serialization.Serializable
 import kotlin.reflect.typeOf
 

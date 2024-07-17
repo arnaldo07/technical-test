@@ -1,4 +1,4 @@
-package com.enmanuelbergling.technicaltest.ui.maps
+package com.enmanuelbergling.technicaltest.ui.feature.maps
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

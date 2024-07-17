@@ -1,11 +1,11 @@
-package com.enmanuelbergling.technicaltest.ui.maps.navigation
+package com.enmanuelbergling.technicaltest.ui.feature.maps.navigation
 
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.enmanuelbergling.technicaltest.domain.entity.Coordinates
-import com.enmanuelbergling.technicaltest.ui.maps.MapRoute
+import com.enmanuelbergling.technicaltest.ui.feature.maps.MapRoute
 import kotlinx.serialization.Serializable
 
 fun NavHostController.navigateToMap(
