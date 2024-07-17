@@ -151,7 +151,7 @@ private fun ContactScreen(
         item {
             AboutItemText(
                 imageVector = Icons.Rounded.DateRange,
-                information = contactState.dayOfBirth,
+                information = contactState.dayOfBirth.take(10),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = DimensionTokens.MediumSmall)
