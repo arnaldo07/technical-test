@@ -32,6 +32,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -45,8 +46,8 @@ import coil.compose.AsyncImage
 import com.enmanuelbergling.technicaltest.R
 import com.enmanuelbergling.technicaltest.domain.entity.Contact
 import com.enmanuelbergling.technicaltest.ui.components.SimpleLottieAnimation
-import com.enmanuelbergling.technicaltest.ui.theme.DimensionTokens
 import com.enmanuelbergling.technicaltest.ui.theme.ContactsTheme
+import com.enmanuelbergling.technicaltest.ui.theme.DimensionTokens
 import com.enmanuelbergling.technicaltest.ui.utils.isAppending
 import com.enmanuelbergling.technicaltest.ui.utils.isEmpty
 import com.enmanuelbergling.technicaltest.ui.utils.isRefreshing
@@ -233,6 +234,7 @@ fun ContactItem(
                 style = MaterialTheme.typography.titleMedium,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.testTag(stringResource(id = R.string.contact_name_test_tag))
             )
 
             Text(
@@ -241,6 +243,7 @@ fun ContactItem(
                 fontWeight = FontWeight.Light,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.testTag(stringResource(id = R.string.contact_email_test_tag))
             )
         }
     }

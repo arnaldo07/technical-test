@@ -5,4 +5,8 @@
     <string name="gender">Gender</string>
     <string name="location">Location</string>
     <string name="map">Map</string>
+
+<!--    Test tags-->
+    <string name="contact_email_test_tag">contact_email_test_tag</string>
+    <string name="contact_name_test_tag">contact_name_test_tag</string>
 </resources>

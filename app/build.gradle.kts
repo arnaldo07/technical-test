@@ -20,7 +20,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.enmanuelbergling.technicaltest.ApplicationTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -51,11 +51,11 @@ android {
         }
     }
 
-    testOptions {
+    /*testOptions {
         unitTests.all {
             it.useJUnitPlatform()
         }
-    }
+    }*/
 }
 
 dependencies {
@@ -79,6 +79,7 @@ dependencies {
     //navigation
     api(libs.androidx.navigation.navigation.compose)
     api(libs.kotlinx.serialization.json)
+    testImplementation(libs.junit.jupiter)
 
 
     debugImplementation(libs.androidx.ui.tooling)
@@ -115,6 +116,10 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+
+    //hilt
+    androidTestImplementation(libs.com.google.dagger.hilt.android.testing)
+    kspAndroidTest(libs.com.google.dagger.hilt.android.compiler)
 }
 
 secrets {
