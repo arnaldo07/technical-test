@@ -91,8 +91,6 @@ fun ContactScreen(
     onLocate: (Coordinates) -> Unit,
     onBack: () -> Unit,
 ) {
-    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -110,14 +108,12 @@ fun ContactScreen(
                         )
                     }
                 },
-                scrollBehavior = scrollBehavior,
             )
         }
     ) {
         LazyColumn(
             modifier = Modifier
                 .padding(it)
-                .nestedScroll(scrollBehavior.nestedScrollConnection)
                 .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(DimensionTokens.MediumSmall)
@@ -125,8 +121,8 @@ fun ContactScreen(
             item {
                 ContactHeader(
                     picture = contactState.thumbPicture,
-                    modifier = Modifier.heightIn(
-                        max = DimensionTokens.BiggerPictureSize.times(1.5f)
+                    modifier = Modifier.height(
+                       DimensionTokens.BiggerPictureSize.times(1.5f)
                             .plus(DimensionTokens.Small)
                     )
                 )
@@ -223,8 +219,8 @@ fun ContactHeader(picture: String, modifier: Modifier = Modifier) {
             contentDescription = "world map",
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .padding(bottom = DimensionTokens.BiggerPictureSize / 2)
                 .fillMaxSize()
+                .padding(bottom = DimensionTokens.BiggerPictureSize / 2)
         )
 
         if (isPreviewEnabled) {
@@ -245,6 +241,7 @@ fun ContactHeader(picture: String, modifier: Modifier = Modifier) {
                     .biggerPicture()
                     .align(Alignment.BottomCenter),
                 placeholder = painterResource(id = R.drawable.user_placeholder),
+                error = painterResource(id = R.drawable.user_placeholder),
             )
         }
     }

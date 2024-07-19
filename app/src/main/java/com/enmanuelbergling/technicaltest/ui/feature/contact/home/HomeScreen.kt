@@ -167,7 +167,7 @@ private fun ContactsList(
                         HorizontalDivider(
                             Modifier
                                 .padding(start = dividerStartPadding)
-                                .fillMaxWidth()
+                                .fillMaxWidth(),
                         )
                     }
                 }
@@ -220,6 +220,7 @@ fun ContactItem(
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.contactPicture(),
                 placeholder = painterResource(id = R.drawable.user_placeholder),
+                error = painterResource(id = R.drawable.user_placeholder),
             )
         }
 
