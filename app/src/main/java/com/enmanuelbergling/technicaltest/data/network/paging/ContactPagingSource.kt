@@ -5,7 +5,7 @@ import androidx.paging.PagingState
 import com.enmanuelbergling.technicaltest.domain.entity.Contact
 import com.enmanuelbergling.technicaltest.domain.repo.ContactRepo
 
-class ContactPagingSource(
+internal class ContactPagingSource(
     private val repo: ContactRepo,
 ) : PagingSource<Int, Contact>() {
     override fun getRefreshKey(state: PagingState<Int, Contact>): Int? =
