@@ -208,7 +208,7 @@ fun ContactItem(
             .padding(all = DimensionTokens.Small) then modifier) {
         if (isPreviewEnabled) {
             Image(
-                painter = painterResource(id = R.drawable.mr_bean),
+                painter = painterResource(id = R.drawable.user_placeholder),
                 contentDescription = "contact picture",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.contactPicture()
@@ -219,7 +219,7 @@ fun ContactItem(
                 contentDescription = "contact picture",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.contactPicture(),
-                placeholder = painterResource(id = R.drawable.mr_bean),
+                placeholder = painterResource(id = R.drawable.user_placeholder),
             )
         }
 
