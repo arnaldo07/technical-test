@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -84,7 +86,7 @@ val Location.stringText: String
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
- fun ContactScreen(
+fun ContactScreen(
     contactState: Contact,
     onLocate: (Coordinates) -> Unit,
     onBack: () -> Unit,
@@ -121,7 +123,13 @@ val Location.stringText: String
             verticalArrangement = Arrangement.spacedBy(DimensionTokens.MediumSmall)
         ) {
             item {
-                ContactHeader(picture = contactState.thumbPicture)
+                ContactHeader(
+                    picture = contactState.thumbPicture,
+                    modifier = Modifier.heightIn(
+                        max = DimensionTokens.BiggerPictureSize.times(1.5f)
+                            .plus(DimensionTokens.Small)
+                    )
+                )
             }
             item {
                 Text(
@@ -215,14 +223,13 @@ fun ContactHeader(picture: String, modifier: Modifier = Modifier) {
             contentDescription = "world map",
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .fillMaxWidth()
                 .padding(bottom = DimensionTokens.BiggerPictureSize / 2)
-                .height(DimensionTokens.BiggerPictureSize + DimensionTokens.Small)
+                .fillMaxSize()
         )
 
         if (isPreviewEnabled) {
             Image(
-                painter = painterResource(id = R.drawable.mr_bean),
+                painter = painterResource(id = R.drawable.user_placeholder),
                 contentDescription = "contact picture",
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -237,7 +244,7 @@ fun ContactHeader(picture: String, modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .biggerPicture()
                     .align(Alignment.BottomCenter),
-                placeholder = painterResource(id = R.drawable.mr_bean),
+                placeholder = painterResource(id = R.drawable.user_placeholder),
             )
         }
     }
