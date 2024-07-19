@@ -12,7 +12,7 @@ import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
-import com.enmanuelbergling.technicaltest.MainActivity
+import com.enmanuelbergling.technicaltest.ContactsActivity
 import com.enmanuelbergling.technicaltest.R
 import com.enmanuelbergling.technicaltest.domain.entity.Contact
 import com.enmanuelbergling.technicaltest.mock.FAKE_CONTACTS
@@ -30,7 +30,7 @@ import org.junit.Test
 class ContactDetailsTest {
 
     @get:Rule
-    val composeTestRule = createAndroidComposeRule<MainActivity>()
+    val composeTestRule = createAndroidComposeRule<ContactsActivity>()
 
     @get:Rule
     var hiltRule = HiltAndroidRule(this)

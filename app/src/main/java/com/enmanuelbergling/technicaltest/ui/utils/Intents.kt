@@ -18,8 +18,7 @@ fun Context.sendEmail(
     message: String? = null,
 ): Boolean {
     val intent = Intent(Intent.ACTION_SENDTO)
-        .setData(Uri.parse("mailto:"))
-        .setType("message/rfc822")
+        .setDataAndType(Uri.parse("mailto:"),"message/rfc822")
         .putExtra(Intent.EXTRA_EMAIL, emails)
         .putExtra(Intent.EXTRA_SUBJECT, subject)
         .putExtra(Intent.EXTRA_TEXT, message)

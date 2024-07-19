@@ -13,7 +13,7 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
-import com.enmanuelbergling.technicaltest.MainActivity
+import com.enmanuelbergling.technicaltest.ContactsActivity
 import com.enmanuelbergling.technicaltest.R
 import com.enmanuelbergling.technicaltest.mock.FAKE_CONTACTS
 import com.enmanuelbergling.technicaltest.ui.navigation.AppNavHost
@@ -32,7 +32,7 @@ class EndToEndTest {
     var hiltRule = HiltAndroidRule(this)
 
     @get:Rule
-    val composeTestRule = createAndroidComposeRule<MainActivity>()
+    val composeTestRule = createAndroidComposeRule<ContactsActivity>()
 
     private lateinit var windowSizeClass: WindowSizeClass
 

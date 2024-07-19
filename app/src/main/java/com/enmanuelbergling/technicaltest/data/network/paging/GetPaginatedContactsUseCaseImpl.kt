@@ -8,7 +8,7 @@ import com.enmanuelbergling.technicaltest.domain.repo.ContactRepo
 import com.enmanuelbergling.technicaltest.domain.usecase.GetPaginatedContactsUseCase
 import kotlinx.coroutines.flow.Flow
 
-class GetPaginatedContactsUseCaseImpl(
+internal class GetPaginatedContactsUseCaseImpl(
     private val repo: ContactRepo,
 ) : GetPaginatedContactsUseCase {
 
