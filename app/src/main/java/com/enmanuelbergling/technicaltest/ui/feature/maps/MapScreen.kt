@@ -76,7 +76,7 @@ fun SimpleGoogleMap(coordinates: Coordinates, onMarker: () -> Unit, modifier: Mo
     GoogleMap(
         modifier = modifier, uiSettings = MapUiSettings(zoomControlsEnabled = false),
         cameraPositionState = rememberCameraPositionState {
-            position = CameraPosition.fromLatLngZoom(coordinates.asLatLong(), 20f)
+            position = CameraPosition.fromLatLngZoom(coordinates.asLatLong(), 12f)
         }
     ) {
         Marker(
