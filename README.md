@@ -1,7 +1,11 @@
+# Setup
+Go to secret.properties and add your MAPS_API_KEY
+
 # Architecture
 The application follows a clean architecture:
 
-*The dependencies go inward from low-level to high-level layers:*
+*The dependencies go inward from low-level to high-level layers*
+
 ![technical test](https://github.com/user-attachments/assets/d16e3713-517b-413d-ab64-a62eb94d267b)
 
 
