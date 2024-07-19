@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -33,14 +32,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalInspectionMode
@@ -116,13 +113,14 @@ fun ContactScreen(
                 .padding(it)
                 .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(DimensionTokens.MediumSmall)
+            verticalArrangement = Arrangement.spacedBy(DimensionTokens.MediumSmall),
+            contentPadding = PaddingValues(bottom = DimensionTokens.Small)
         ) {
             item {
                 ContactHeader(
                     picture = contactState.thumbPicture,
                     modifier = Modifier.height(
-                       DimensionTokens.BiggerPictureSize.times(1.5f)
+                        DimensionTokens.BiggerPictureSize.times(1.5f)
                             .plus(DimensionTokens.Small)
                     )
                 )
@@ -217,7 +215,7 @@ fun ContactHeader(picture: String, modifier: Modifier = Modifier) {
         Image(
             painter = painterResource(id = R.drawable.world_map),
             contentDescription = "world map",
-            contentScale = ContentScale.Crop,
+            contentScale = ContentScale.FillBounds,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(bottom = DimensionTokens.BiggerPictureSize / 2)
