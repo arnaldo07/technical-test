@@ -42,6 +42,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -52,12 +53,12 @@ import coil.compose.AsyncImage
 import com.enmanuelbergling.technicaltest.R
 import com.enmanuelbergling.technicaltest.domain.entity.Contact
 import com.enmanuelbergling.technicaltest.domain.entity.Coordinates
+import com.enmanuelbergling.technicaltest.domain.entity.Location
 import com.enmanuelbergling.technicaltest.ui.components.LargerIconButton
-import com.enmanuelbergling.technicaltest.ui.theme.DimensionTokens
 import com.enmanuelbergling.technicaltest.ui.theme.ContactsTheme
+import com.enmanuelbergling.technicaltest.ui.theme.DimensionTokens
 import com.enmanuelbergling.technicaltest.ui.utils.sendEmail
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ContactRoute(onBack: () -> Unit, onLocate: (Coordinates) -> Unit) {
 
@@ -65,13 +66,39 @@ fun ContactRoute(onBack: () -> Unit, onLocate: (Coordinates) -> Unit) {
 
     val contactState by viewModel.contactState
 
+    ContactScreen(
+        contactState = contactState,
+        onLocate = onLocate,
+        onBack = onBack
+    )
+}
+
+val Contact.fullName: String
+    get() = "$name $lastname"
+
+val Contact.topBarText: String
+    get() = "$name, $age"
+
+val Location.stringText: String
+    get() = "$city, $state, $country"
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+ fun ContactScreen(
+    contactState: Contact,
+    onLocate: (Coordinates) -> Unit,
+    onBack: () -> Unit,
+) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {
-                    Text(text = "${contactState.name}, ${contactState.age}")
+                    Text(
+                        text = contactState.topBarText,
+                        modifier = Modifier.testTag(stringResource(id = R.string.contact_top_bar_test_tag))
+                    )
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
@@ -80,102 +107,92 @@ fun ContactRoute(onBack: () -> Unit, onLocate: (Coordinates) -> Unit) {
                             contentDescription = "arrow back"
                         )
                     }
-                }
+                },
+                scrollBehavior = scrollBehavior,
             )
         }
     ) {
-        ContactScreen(
-            contactState = contactState,
+        LazyColumn(
             modifier = Modifier
                 .padding(it)
-                .nestedScroll(scrollBehavior.nestedScrollConnection),
-            onLocate = onLocate
-        )
-    }
-}
-
-@Composable
-private fun ContactScreen(
-    contactState: Contact,
-    modifier: Modifier = Modifier,
-    onLocate: (Coordinates) -> Unit,
-) {
-    LazyColumn(
-        modifier = modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(DimensionTokens.MediumSmall)
-    ) {
-        item {
-            ContactHeader(picture = contactState.thumbPicture)
-        }
-        item {
-            Text(
-                text = "${contactState.name} ${contactState.lastname}",
-                fontWeight = FontWeight.Light
-            )
-        }
-        item {
-            val context = LocalContext.current
-
-            ContactActions(
-                onMail = {
-                    context.sendEmail(arrayOf(contactState.email))
-                },
-                onLocate = { onLocate(contactState.location.coordinates) },
-                modifier = Modifier.fillMaxWidth(),
-            )
-        }
-
-        item {
-            Column {
-                Text(
-                    text = stringResource(id = R.string.about, contactState.name),
-                    style = MaterialTheme.typography.titleLarge,
-                    modifier = Modifier.padding(all = DimensionTokens.MediumSmall)
-                )
-
-                HorizontalDivider(Modifier.fillMaxWidth())
+                .nestedScroll(scrollBehavior.nestedScrollConnection)
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(DimensionTokens.MediumSmall)
+        ) {
+            item {
+                ContactHeader(picture = contactState.thumbPicture)
             }
-        }
+            item {
+                Text(
+                    text = contactState.fullName,
+                    fontWeight = FontWeight.Light,
+                    modifier = Modifier.testTag(stringResource(R.string.contact_full_name_test_tag))
+                )
+            }
+            item {
+                val context = LocalContext.current
 
-        item {
-            AboutItemText(
-                imageVector = Icons.Rounded.Call,
-                information = contactState.phone,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = DimensionTokens.MediumSmall)
-            )
-        }
+                ContactActions(
+                    onMail = {
+                        context.sendEmail(arrayOf(contactState.email))
+                    },
+                    onLocate = { onLocate(contactState.location.coordinates) },
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
 
-        item {
-            AboutItemText(
-                imageVector = Icons.Rounded.DateRange,
-                information = contactState.dayOfBirth.take(10),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = DimensionTokens.MediumSmall)
-            )
-        }
+            item {
+                Column {
+                    Text(
+                        text = stringResource(id = R.string.about, contactState.name),
+                        style = MaterialTheme.typography.titleLarge,
+                        modifier = Modifier.padding(all = DimensionTokens.MediumSmall)
+                    )
 
-        item {
-            AboutItemCard(
-                label = stringResource(id = R.string.gender),
-                information = contactState.gender,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = DimensionTokens.MediumSmall)
-            )
-        }
+                    HorizontalDivider(Modifier.fillMaxWidth())
+                }
+            }
 
-        item {
-            AboutItemCard(
-                label = stringResource(id = R.string.location),
-                information = "${contactState.location.city}, ${contactState.location.state}, ${contactState.location.country}",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = DimensionTokens.MediumSmall),
-            )
+            item {
+                AboutItemText(
+                    imageVector = Icons.Rounded.Call,
+                    information = contactState.phone,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = DimensionTokens.MediumSmall)
+                )
+            }
+
+            item {
+                AboutItemText(
+                    imageVector = Icons.Rounded.DateRange,
+                    information = contactState.dayOfBirth,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = DimensionTokens.MediumSmall)
+                )
+            }
+
+            item {
+                AboutItemCard(
+                    label = stringResource(id = R.string.gender),
+                    information = contactState.gender,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = DimensionTokens.MediumSmall)
+                )
+            }
+
+            item {
+                AboutItemCard(
+                    label = stringResource(id = R.string.location),
+                    information = contactState.location.stringText,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = DimensionTokens.MediumSmall),
+                )
+            }
         }
     }
 }
