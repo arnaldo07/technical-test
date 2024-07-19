@@ -1,4 +1,4 @@
-package com.enmanuelbergling.technicaltest
+package com.enmanuelbergling.technicaltest.tests
 
 import android.content.Context
 import androidx.activity.compose.setContent
@@ -12,6 +12,8 @@ import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
+import com.enmanuelbergling.technicaltest.MainActivity
+import com.enmanuelbergling.technicaltest.R
 import com.enmanuelbergling.technicaltest.domain.entity.Contact
 import com.enmanuelbergling.technicaltest.mock.FAKE_CONTACTS
 import com.enmanuelbergling.technicaltest.ui.feature.contact.detail.ContactScreen

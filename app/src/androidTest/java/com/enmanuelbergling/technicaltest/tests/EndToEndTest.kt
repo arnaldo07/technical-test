@@ -1,4 +1,4 @@
-package com.enmanuelbergling.technicaltest
+package com.enmanuelbergling.technicaltest.tests
 
 import androidx.activity.compose.setContent
 import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
@@ -13,6 +13,8 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import com.enmanuelbergling.technicaltest.MainActivity
+import com.enmanuelbergling.technicaltest.R
 import com.enmanuelbergling.technicaltest.mock.FAKE_CONTACTS
 import com.enmanuelbergling.technicaltest.ui.navigation.AppNavHost
 import com.enmanuelbergling.technicaltest.ui.rememberAppState
