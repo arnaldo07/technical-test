@@ -35,7 +35,7 @@ Represents data and handles user interactions
 - Components: contains those that are common throughout the application, such as buttons.
 - Navigation: Contains the navigation host when all destinations are defined in the application.
 From here, the callbacks are passed to each screen so they can navigate between them. [AppNavigation](https://github.com/enmanuel52/technical-test/blob/dev/app/src/main/java/com/enmanuelbergling/technicaltest/ui/navigation/AppNavigation.kt)
-- Features: designed so that it can be isolated into its own module. Within each one the navigation logic is isolated,
+- Features: designed so that each one can be isolated into its own module. Within each one the navigation logic is isolated,
 containing the destination and the function to navigate to it. [ContactNavigation](https://github.com/enmanuel52/technical-test/blob/dev/app/src/main/java/com/enmanuelbergling/technicaltest/ui/feature/contact/navigation/ContactNavigation.kt)
 
 # Testing
