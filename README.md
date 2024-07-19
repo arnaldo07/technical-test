@@ -1,5 +1,5 @@
 # Setup
-Go to secret.properties and add your MAPS_API_KEY
+Create secret.properties in the project root and add your MAPS_API_KEY
 
 # Architecture
 The application follows a clean architecture:
