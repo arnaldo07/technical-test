@@ -47,3 +47,11 @@ An [End-to-End](https://github.com/enmanuel52/technical-test/blob/dev/app/src/an
 
 For this it was necessary to replace only the [app hilt module](https://github.com/enmanuel52/technical-test/blob/dev/app/src/main/java/com/enmanuelbergling/technicaltest/data/network/di/NetworkModule.kt) 
 for a [new one](https://github.com/enmanuel52/technical-test/blob/dev/app/src/androidTest/java/com/enmanuelbergling/technicaltest/di/TestNetworkModule.kt) to provide fake implementations of the repository so that it can run faster.
+
+# Screenshots
+
+<div style="margin: 10px;">
+  <img src="https://github.com/user-attachments/assets/fbb0e94b-a420-4119-8987-b6e231c0fc2e" style="display: flex; width: 30%; padding: 0% 3%;">
+  <img src="https://github.com/user-attachments/assets/62502d13-ebaf-4994-8e25-c9f0971b3e62" style="display: flex; width: 30%; padding: 0% 3%;">
+  <img src="https://github.com/user-attachments/assets/df01cb66-970f-4965-8fd6-70586d97c2ff" style="display: flex; width: 30%; padding: 0% 3%;">
+</div>
