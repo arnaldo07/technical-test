@@ -45,7 +45,6 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import coil.compose.AsyncImage
 import com.enmanuelbergling.technicaltest.R
 import com.enmanuelbergling.technicaltest.domain.entity.Contact
-import com.enmanuelbergling.technicaltest.ui.components.SimpleLottieAnimation
 import com.enmanuelbergling.technicaltest.ui.theme.ContactsTheme
 import com.enmanuelbergling.technicaltest.ui.theme.DimensionTokens
 import com.enmanuelbergling.technicaltest.ui.utils.isAppending
@@ -93,7 +92,7 @@ fun HomeScreen(contacts: LazyPagingItems<Contact>, onDetails: (Contact) -> Unit)
                     .padding(it)
             )
         } else {
-            LowInternetConnection(
+            NoInternetConnection(
                 modifier = Modifier
                     .padding(it),
                 onRetry = contacts::refresh
@@ -103,17 +102,14 @@ fun HomeScreen(contacts: LazyPagingItems<Contact>, onDetails: (Contact) -> Unit)
 }
 
 @Composable
-fun LowInternetConnection(modifier: Modifier, onRetry: () -> Unit) {
+fun NoInternetConnection(modifier: Modifier, onRetry: () -> Unit) {
 
     Column(
         modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceEvenly
+        verticalArrangement = Arrangement.spacedBy(DimensionTokens.Small, Alignment.CenterVertically)
     ) {
-        SimpleLottieAnimation(
-            rawResLottie = R.raw.not_internet_connection,
-            modifier = Modifier.fillMaxWidth(.7f)
-        )
+        Text(text = "No internet connection")
 
         Button(onClick = onRetry) {
             Text(text = stringResource(id = R.string.try_again))
