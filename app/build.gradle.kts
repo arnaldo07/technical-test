@@ -5,20 +5,22 @@ plugins {
     id("com.google.devtools.ksp")
     id("org.jetbrains.kotlin.plugin.serialization")
     id("dagger.hilt.android.plugin")
+    id("kotlin-parcelize")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
     namespace = "com.enmanuelbergling.technicaltest"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.enmanuelbergling.technicaltest"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.enmanuelbergling.technicaltest.ApplicationTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -26,7 +28,7 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -42,6 +44,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     packaging {
         resources {
@@ -49,11 +52,11 @@ android {
         }
     }
 
-    testOptions {
+    /*testOptions {
         unitTests.all {
             it.useJUnitPlatform()
         }
-    }
+    }*/
 }
 
 dependencies {
@@ -71,9 +74,13 @@ dependencies {
     implementation(libs.io.coil.kt.coil.compose)
     implementation(libs.androidx.core.splashscreen)
 
+    implementation(libs.com.valentinilk.shimmer.compose)
+    implementation(libs.com.airbnb.android.lottie.compose)
+
     //navigation
     api(libs.androidx.navigation.navigation.compose)
     api(libs.kotlinx.serialization.json)
+    testImplementation(libs.junit.jupiter)
 
 
     debugImplementation(libs.androidx.ui.tooling)
@@ -110,4 +117,23 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+
+    //hilt
+    androidTestImplementation(libs.com.google.dagger.hilt.android.testing)
+    kspAndroidTest(libs.com.google.dagger.hilt.android.compiler)
+}
+
+secrets {
+    // Optionally specify a different file name containing your secrets.
+    // The plugin defaults to "local.properties"
+    propertiesFileName = "secret.properties"
+
+    // A properties file containing default secret values. This file can be
+    // checked in version control.
+    //defaultPropertiesFileName = "local.defaults.properties"
+
+    // Configure which keys should be ignored by the plugin by providing regular expressions.
+    // "sdk.dir" is ignored by default.
+    //ignoreList.add("keyToIgnore") // Ignore the key "keyToIgnore"
+    //ignoreList.add("sdk.*")       // Ignore all keys matching the regexp "sdk.*"
 }
