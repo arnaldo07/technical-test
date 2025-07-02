@@ -59,4 +59,3 @@ El proyecto está construido de la siguiente forma:
     *   `Accompanist Permissions`: Para un manejo declarativo y limpio de los permisos en tiempo de ejecución.
 
 ##  Demostración en Video
-![WhatsAppVideo2025-07-01at22.59.01-ezgif.com-video-to-gif-converter.gif](..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2FDownloads%2FWhatsAppVideo2025-07-01at22.59.01-ezgif.com-video-to-gif-converter.gif)

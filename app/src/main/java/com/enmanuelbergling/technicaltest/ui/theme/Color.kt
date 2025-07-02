@@ -1,4 +1,4 @@
-package com.enmanuelbergling.technicaltest.ui.theme
+package com.enmanuelbergling.maptest.theme
 
 import androidx.compose.ui.graphics.Color
 
