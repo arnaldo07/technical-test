@@ -5,18 +5,16 @@ Aplicación Android nativa que implementa Google Maps para la visualización y g
 
 ##  Capturas de Pantalla
 Anadir Favorito
-![img.png](img.png)![img]
-(https://github.com/user-attachments/assets/5bc3f6c5-17e1-4584-bbd7-f0b5506d18d7)
+![img.png](img.png)
+![img](https://github.com/user-attachments/assets/5bc3f6c5-17e1-4584-bbd7-f0b5506d18d7)
 
 Seleccionar Favorito en el mapa
-![img_1.png](img_1.png)![img_1]
-(https://github.com/user-attachments/assets/3a83561a-1417-4162-8d40-c9861919e8e2)
-
+![img_1.png](img_1.png)
+![img_1](https://github.com/user-attachments/assets/3a83561a-1417-4162-8d40-c9861919e8e2)
 
 Listado de Favoritos
-
-![img_2.png](img_2.png)![img_2]
-(https://github.com/user-attachments/assets/018bb278-f54c-4835-a7ba-c3db47b547bd)
+![img_2.png](img_2.png)
+![img_2](https://github.com/user-attachments/assets/018bb278-f54c-4835-a7ba-c3db47b547bd)
 
 ## ✨ Funcionalidades
 
