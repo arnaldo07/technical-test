@@ -1,4 +1,4 @@
-package com.enmanuelbergling.technicaltest.ui.theme
+package com.enmanuelbergling.maptest.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -33,7 +33,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun ContactsTheme(
+fun MapTestTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
