@@ -8,7 +8,8 @@ Anadir Favorito
 ![img.png](img.png)![img](https://github.com/user-attachments/assets/5bc3f6c5-17e1-4584-bbd7-f0b5506d18d7)
 
 Seleccionar Favorito en el mapa
-![img_1.png](img_1.png)![Uploading img_1.png…]()
+![img_1.png](img_1.png)![img_1](https://github.com/user-attachments/assets/3a83561a-1417-4162-8d40-c9861919e8e2)
+
 
 Listado de Favoritos
 
@@ -63,6 +64,6 @@ El proyecto está construido de la siguiente forma:
 ##  Demostración en Video
 ![WhatsAppVideo2025-07-01at22.59.01-ezgif.com-video-to-gif-converter.gif](..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2FDownloads%2FWhatsAppVideo2025-07-01at22.59.01-ezgif.com-video-to-gif-converter.gif)
 
+![WhatsAppVideo2025-07-01at22 59 01-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/86259afc-4389-4351-9817-f7fec442160d)
 
-Uploading WhatsApp Video 2025-07-01 at 22.59.01.mp4…
 
