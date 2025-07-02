@@ -24,6 +24,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        manifestPlaceholders["MAPS_API_KEY"] = project.findProperty("MAPS_API_KEY") ?: "NO_API_KEY_FOUND"
     }
 
     buildTypes {
@@ -49,6 +50,11 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "META-INF/INDEX.LIST" // <-- EXCLUIMOS EL ARCHIVO PROBLEMÁTICO
+            excludes += "META-INF/DEPENDENCIES"
+            excludes += "META-INF/io.netty.versions.properties"
+            excludes += "META-INF/LICENSE.md" // Es común tener que excluir estos también
+            excludes += "META-INF/LICENSE-notice.md"
         }
     }
 
@@ -80,6 +86,11 @@ dependencies {
     //navigation
     api(libs.androidx.navigation.navigation.compose)
     api(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.ui.test.android)
+    implementation(libs.play.services.location)
+    implementation(libs.firebase.appdistribution.gradle)
+    implementation(libs.places)
+    implementation(project(":app"))
     testImplementation(libs.junit.jupiter)
 
 
@@ -121,6 +132,17 @@ dependencies {
     //hilt
     androidTestImplementation(libs.com.google.dagger.hilt.android.testing)
     kspAndroidTest(libs.com.google.dagger.hilt.android.compiler)
+
+    //room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+
+    implementation(libs.accompanist.permissions)
+
+    implementation(libs.okhttp.logging.interceptor)
+
+    implementation(libs.material)
 }
 
 secrets {
